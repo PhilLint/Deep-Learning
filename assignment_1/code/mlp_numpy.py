@@ -36,7 +36,12 @@ class MLP(object):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    raise NotImplementedError
+    self.n_layers = len(n_inputs)
+
+    self.layers = []
+
+
+
     ########################
     # END OF YOUR CODE    #
     #######################
