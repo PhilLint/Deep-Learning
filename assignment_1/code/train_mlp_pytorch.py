@@ -14,6 +14,7 @@ import cifar10_utils
 
 import torch
 import torch.nn as nn
+from torch.autograd import Variable
 
 # Default constants
 DNN_HIDDEN_UNITS_DEFAULT = '100'
@@ -110,8 +111,8 @@ def train():
     test_images = test_images.reshape((n_test, n_inputs))
     n_classes = 10
     # use torch tensors instead of np arrays
-    test_images = torch.from_numpy(test_images).type(torch.FloatTensor)  # .to(device)
-    test_targets = torch.from_numpy(test_targets).type(torch.LongTensor) # .to(device)
+    test_images = torch.tensor(test_images)#, requires_grad = False)#.type(torch.FloatTensor)  # .to(device)
+    test_targets = torch.tensor(test_targets)#,requires_grad = False)#.type(torch.LongTensor) # .to(device)
 
     # initialize MLP model
     MLP_model = MLP(n_inputs=n_inputs, n_hidden=dnn_hidden_units, n_classes=n_classes)
@@ -127,8 +128,8 @@ def train():
         train_images = train_images.reshape((FLAGS.batch_size, n_inputs))
 
         # switch from numpy version to tensor and to device
-        train_images = torch.from_numpy(train_images).type(torch.FloatTensor)#.to(device)
-        train_targets = torch.from_numpy(train_targets).type(torch.LongTensor)#.to(device)
+        train_images = torch.tensor(train_images, requires_grad = True).type(torch.FloatTensor)#.to(device)
+        train_targets = torch.tensor(train_targets, requires_grad = True).type(torch.FloatTensor)#.to(device)
 
         # gradients zero initialized
         optimizer.zero_grad()
@@ -137,7 +138,7 @@ def train():
         train_predictions = MLP_model.forward(train_images)
 
         # loss acc to loss module, predictions and targets
-        loss = loss_module(train_predictions, train_targets)
+        loss = loss_module(train_predictions, train_targets.argmax(dim=1))
 
         # Apply backward pass: MLP backward takes gradients of losses = dout
         # dout = backward of loss module
