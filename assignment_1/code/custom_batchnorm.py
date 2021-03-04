@@ -37,7 +37,10 @@ class CustomBatchNormAutograd(nn.Module):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    raise NotImplementedError
+    self.gamma = nn.Parameter(torch.ones(n_neurons))
+    self.beta = nn.Parameter(torch.zeros(n_neurons))
+    self.eps = eps
+    self.n_neurons = n_neurons
     ########################
     # END OF YOUR CODE    #
     #######################
@@ -60,7 +63,18 @@ class CustomBatchNormAutograd(nn.Module):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    raise NotImplementedError
+
+    if input.shape[1] != self.n_neurons:
+      raise Exception(f"The input shape {input.shape} does not match with the expected shape {self.neurons}")
+
+    # mu
+    mean = input.mean(dim=0)
+    # variance
+    var = input.var(dim=0, unbiased = False)
+
+    x_hat = (input - mean) / ((var + self.eps).sqrt())
+    out = self.gamma * x_hat + self.beta
+
     ########################
     # END OF YOUR CODE    #
     #######################
@@ -114,7 +128,25 @@ class CustomBatchNormManualFunction(torch.autograd.Function):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    raise NotImplementedError
+
+    # mu
+    mean = input.mean(dim=0)
+    # variance
+    var = input.var(dim=0, unbiased=False)
+
+    # normalization
+    denom = (var + eps).sqrt()
+    x_hat = (input - mean) / denom
+
+    # scaling and shifting
+    out = gamma * x_hat + beta
+
+    # storing constants
+    ctx.eps = eps
+    ctx.save_for_backward(x_hat, denom, gamma)
+
+    return out
+
     ########################
     # END OF YOUR CODE    #
     #######################
@@ -142,7 +174,34 @@ class CustomBatchNormManualFunction(torch.autograd.Function):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    raise NotImplementedError
+    # setting gradients to None
+    grad_gamma = None
+    grad_beta = None
+    grad_input = None
+
+    # get dimensions
+    batch_size, n_neurons = grad_output.shape
+
+    x_hat, denom, gamma = ctx.saved_tensors
+
+    # gamma gradient
+    if ctx.needs_input_grad[1]:
+      grad_gamma = torch.sum(grad_output *  x_hat, dim=0)
+
+    # input gradient
+    if ctx.needs_input_grad[2]:
+      grad_beta = torch.sum(grad_output, dim=0)
+
+    # gradient with respect to gamma
+    if ctx.needs_input_grad[0]:
+      # helper terms
+      in_grad_hat = grad_output * gamma
+      batch_inv = (1 / batch_size )
+      inv_denom = (1/denom)
+      in_grad_hat_sum = torch.sum(in_grad_hat, dim=0)
+      in_grad_hat_x_hat = torch.sum((in_grad_hat * x_hat), dim=0)
+
+      grad_input = batch_inv * inv_denom * (batch_size * in_grad_hat - in_grad_hat_sum - x_hat * in_grad_hat_x_hat)
     ########################
     # END OF YOUR CODE    #
     #######################
@@ -180,7 +239,12 @@ class CustomBatchNormManualModule(nn.Module):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    raise NotImplementedError
+
+    self.gamma = nn.Parameter(torch.ones(n_neurons))
+    self.beta = nn.Parameter(torch.zeros(n_neurons))
+    self.eps = eps
+    self.n_neurons = n_neurons
+
     ########################
     # END OF YOUR CODE    #
     #######################
@@ -203,9 +267,50 @@ class CustomBatchNormManualModule(nn.Module):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    raise NotImplementedError
+
+    if input.shape[1] != self.n_neurons:
+      raise Exception(f"The input shape {input.shape} does not match with the expected shape {self.neurons}")
+
+    batch_norm = CustomBatchNormManualFunction()
+    out = batch_norm.apply(input, self.gamma, self.beta, self.eps)
     ########################
     # END OF YOUR CODE    #
     #######################
 
     return out
+
+if __name__ == '__main__':
+    # create test batch
+    n_batch = 128
+    n_neurons = 4
+    # create random tensor with variance 2 and mean 3
+    x = 2 * torch.randn(n_batch, n_neurons, requires_grad=True) + 10
+    print('Input data:\n\tmeans={}\n\tvars={}'.format(x.mean(dim=0).data, x.var(dim=0).data))
+
+    # test CustomBatchNormAutograd
+    print('3.1) Test automatic differentation version')
+    bn_auto = CustomBatchNormAutograd(n_neurons)
+    y_auto = bn_auto(x)
+    print('\tmeans={}\n\tvars={}'.format(y_auto.mean(dim=0).data, y_auto.var(dim=0).data))
+
+    # test CustomBatchNormManualFunction
+    # this is recommended to be done in double precision
+    print('3.2 b) Test functional version')
+    input = x.double()
+    gamma = torch.sqrt(10 * torch.arange(n_neurons, dtype=torch.float64, requires_grad=True))
+    beta = 100 * torch.arange(n_neurons, dtype=torch.float64, requires_grad=True)
+    bn_manual_fct = CustomBatchNormManualFunction(n_neurons)
+    y_manual_fct = bn_manual_fct.apply(input, gamma, beta)
+    print('\tmeans={}\n\tvars={}'.format(y_manual_fct.mean(dim=0).data, y_manual_fct.var(dim=0).data))
+    # gradient check
+    grad_correct = torch.autograd.gradcheck(bn_manual_fct.apply, (input, gamma, beta))
+    if grad_correct:
+      print('\tgradient check successful')
+    else:
+      raise ValueError('gradient check failed')
+
+    # test CustomBatchNormManualModule
+    print('3.2 c) Test module of functional version')
+    bn_manual_mod = CustomBatchNormManualModule(n_neurons)
+    y_manual_mod = bn_manual_mod(x)
+    print('\tmeans={}\n\tvars={}'.format(y_manual_mod.mean(dim=0).data, y_manual_mod.var(dim=0).data))

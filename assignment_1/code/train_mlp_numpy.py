@@ -2,6 +2,7 @@
 This module implements training and evaluation of a multi-layer perceptron in NumPy.
 You should fill in code into indicated sections.
 """
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -20,6 +21,7 @@ LEARNING_RATE_DEFAULT = 2e-3
 MAX_STEPS_DEFAULT = 1500
 BATCH_SIZE_DEFAULT = 200
 EVAL_FREQ_DEFAULT = 100
+NEG_SLOPE_DEFAULT = 0.02
 
 # Directory in which cifar data is saved
 DATA_DIR_DEFAULT = './cifar10/cifar-10-batches-py'
@@ -80,6 +82,9 @@ def train():
     else:
         dnn_hidden_units = []
 
+    # Get negative slope parameter for LeakyReLU
+    neg_slope = FLAGS.neg_slope
+
     ########################
     # PUT YOUR CODE HERE  #
     #######################
@@ -108,12 +113,11 @@ def train():
     test_images = test_images.reshape((n_test, n_inputs))
 
     # initialize MLP model
-    MLP_model = MLP(n_inputs=n_inputs, n_hidden=dnn_hidden_units, n_classes=test_targets.shape[1])
+    MLP_model = MLP(n_inputs=n_inputs, n_hidden=dnn_hidden_units, n_classes=test_targets.shape[1], neg_slope=neg_slope)
     # loss function os loaded
     loss_module = CrossEntropyModule()
 
     for iteration in range(FLAGS.max_steps + 1):
-        print("iteration:" + str(iteration))
         train_images, train_targets = cifar10['train'].next_batch(FLAGS.batch_size)
         # input to MLP.forward is (batch_size, n_inputs)
         train_input = train_images.reshape((FLAGS.batch_size, n_inputs))
@@ -132,7 +136,6 @@ def train():
 
         ## Save training statistics
         # save loss, acc, iteration for train evaluation afterwards
-        print("iteration:" + str(iteration) + "train_acc:" + str(np.mean(train_accuracies)))
         train_accuracies.append(accuracy(train_predictions, train_targets))
         train_losses.append(loss)
         steps.append(iteration)
@@ -150,52 +153,33 @@ def train():
             ## Test Statistics
             test_predictions = MLP_model.forward(test_images)
             test_loss = loss_module.forward(test_predictions, test_targets)
+            print("iteration:" + str(iteration) + "train_acc:" + str(np.mean(train_accuracies)))
             print("iteration:" + str(iteration) + "test_acc:" + str(test_accuracies))
             test_accuracies.append(accuracy(test_predictions, test_targets))
             test_losses.append(test_loss)
 
     print('Training is done')
-    print('Save results in folder: ./code/numpy')
-    # save loss and accuracies to plot from for report
-    # folder for numpy results
-    folder = "./numpy/"
-    test_acc_path = folder + "test accuracies"
-    np.save(test_acc_path, test_accuracies)
-    train_acc_path = folder + "train accuracies"
-    np.save(train_acc_path, train_accuracies)
-    test_loss_path = folder + "test losses"
-    np.save(test_loss_path, test_losses)
-    train_loss_path = folder + "train losses"
-    np.save(train_loss_path, train_losses)
-    np.save(folder + "steps", steps)
+    print('Plot Results')
 
-    plot_results()
-    ########################
-    # END OF YOUR CODE    #
-    #######################
-
-
-def plot_results():
-    test_acc = np.load("./numpy/test accuracies.npy")
-    train_acc = np.load("./numpy/train accuracies.npy")
-    train_loss = np.load("./numpy/train losses.npy")
-    test_loss = np.load("./numpy/test losses.npy")
-    # # plot accuracies and losses
     plt.subplot(2, 1, 1)
     plt.title("Results")
-    plt.plot(np.arange(len(train_acc) ), train_acc, 'o-', label="train acc")
-    plt.plot(np.arange(len(test_acc) * FLAGS.eval_freq, step=FLAGS.eval_freq), test_acc, label="test acc")
+    plt.plot(np.arange(len(train_accuracies)), train_accuracies, label="train acc")
+    plt.plot(np.arange(len(test_accuracies) * FLAGS.eval_freq, step=FLAGS.eval_freq), test_accuracies, label="test acc")
     plt.ylabel('Accuracy (%)')
     plt.legend()
     # loss
     plt.subplot(2, 1, 2)
-    plt.plot(np.arange(len(train_loss)), train_loss, label=" train loss")
-    plt.plot(np.arange(len(test_loss) * FLAGS.eval_freq, step=FLAGS.eval_freq), test_loss, label=" test loss")
+    plt.plot(np.arange(len(train_losses)), train_losses, label=" train loss")
+    plt.plot(np.arange(len(test_losses) * FLAGS.eval_freq, step=FLAGS.eval_freq), test_losses, label=" test loss")
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
     plt.legend()
     plt.savefig('numpy_results.png')
     plt.show()
+
+    ########################
+    # END OF YOUR CODE    #
+    #######################
 
 
 def print_flags():
@@ -235,6 +219,8 @@ if __name__ == '__main__':
                         help='Frequency of evaluation on the test set')
     parser.add_argument('--data_dir', type=str, default=DATA_DIR_DEFAULT,
                         help='Directory for storing input data')
+    parser.add_argument('--neg_slope', type=float, default=NEG_SLOPE_DEFAULT,
+                        help='Negative slope parameter for LeakyReLU')
     FLAGS, unparsed = parser.parse_known_args()
 
     main()

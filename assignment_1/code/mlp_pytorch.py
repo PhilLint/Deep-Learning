@@ -16,7 +16,7 @@ class MLP(nn.Module):
     Once initialized an MLP object can perform forward.
     """
 
-    def __init__(self, n_inputs, n_hidden, n_classes):
+    def __init__(self, n_inputs, n_hidden, n_classes, neg_slope):
         """
         Initializes MLP object.
 
@@ -48,15 +48,15 @@ class MLP(nn.Module):
             for out_features in n_hidden:
                 # LinearModule needs in_put and out_put dimensions
                 self.layers.append(nn.Linear(current_input, out_features))
-                self.layers.append(nn.ReLU())
+                self.layers.append(nn.LeakyReLU(negative_slope=neg_slope))
                 current_input = out_features
 
         # after appending all hidden layers (or not if n_hidden = 0)
         # -> 1 LinearModule followed by softmax = Logistic regression
         self.layers.append(nn.Linear(current_input, n_classes))
-        self.layers.append(nn.Softmax())
-        # define sequential model
+        # define sequential model for layers
         self.layers = nn.Sequential(*self.layers)
+
         ########################
         # END OF YOUR CODE    #
         #######################

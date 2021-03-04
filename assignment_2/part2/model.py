@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2017 Tom Runia
+# Copyright (c) 2019 Tom Runia
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -9,8 +9,8 @@
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to conditions.
 #
-# Author: Deep Learning Course | Fall 2018
-# Date Created: 2018-09-04
+# Author: Deep Learning Course | Fall 2019
+# Date Created: 2019-09-06
 ################################################################################
 
 from __future__ import absolute_import

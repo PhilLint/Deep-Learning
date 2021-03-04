@@ -15,7 +15,7 @@ class MLP(object):
     Once initialized an MLP object can perform forward and backward.
     """
 
-    def __init__(self, n_inputs, n_hidden, n_classes):
+    def __init__(self, n_inputs, n_hidden, n_classes, neg_slope):
         """
         Initializes MLP object.
 
@@ -45,7 +45,7 @@ class MLP(object):
             for out_features in n_hidden:
                 # LinearModule needs in_put and out_put dimensions
                 self.layers.append(LinearModule(current_input, out_features))
-                self.layers.append(ReLUModule())
+                self.layers.append(LeakyReLUModule(neg_slope))
                 current_input = out_features
 
         # after appending all hidden layers (or not if n_hidden = 0)
@@ -103,7 +103,6 @@ class MLP(object):
         loss = dout
         for module in reversed(self.layers):
             loss = module.backward(loss)
-
         ########################
         # END OF YOUR CODE    #
         #######################

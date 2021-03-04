@@ -105,10 +105,28 @@ class LinearModule(object):
     
     return dx
 
-class ReLUModule(object):
+class LeakyReLUModule(object):
   """
   ReLU activation module.
   """
+
+  def __init__(self, neg_slope):
+    """
+    Initializes the parameters of the module.
+    Args:
+      neg_slope: negative slope parameter.
+    TODO:
+    Initialize the module.
+    """
+
+    ########################
+    # PUT YOUR CODE HERE  #
+    #######################
+    self.neg_slope = neg_slope
+    ########################
+    # END OF YOUR CODE    #
+    #######################
+
   def forward(self, x):
     """
     Forward pass.
@@ -127,8 +145,8 @@ class ReLUModule(object):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    out = np.maximum(0, x)
-    # store inout of relu
+    out = np.maximum(0, x) + self.neg_slope * np.minimum(0, x)
+    # store input of LeakyRelu
     self.input = x
     ########################
     # END OF YOUR CODE    #
@@ -154,7 +172,7 @@ class ReLUModule(object):
     #######################
     # boolean condition > 0: if x > 0 then gradient 1, else 0
     # type conversion ensures 1; 0 values
-    dx = dout * (self.input > 0).astype(int)
+    dx = dout * ((self.input > 0).astype(int) )
     ########################
     # END OF YOUR CODE    #
     #######################    
@@ -177,7 +195,7 @@ class SoftMaxModule(object):
     Implement forward pass of the module. 
     To stabilize computation you should use the so-called Max Trick - https://timvieira.github.io/blog/post/2014/02/11/exp-normalize-trick/
     
-    Hint: You can store intermediate variables inside the object. They can be used in backward pass computation.                                                           #
+    Hint: You can store intermediate variables inside the object. They can be used in backward pass computation:
     """
 
     ########################
@@ -212,15 +230,14 @@ class SoftMaxModule(object):
     # PUT YOUR CODE HERE  #
     ########################
     # for each batch separately
-    batch_size = self.output.shape[0] # how many observations in one batch
-    dim_out = self.output.shape[1] # output dimension of features
 
     # create #batch_size diagonal matrices with the diagonal elements
-    # of x[1,:,:], .., x[batch_size, :,:] in it by multiplying with identity
-    diagonals = np.vsplit(self.output, batch_size) * np.eye(dim_out)
-    # for each batch element: diagonal - x*x^T (batch wise -> einsum)
+    # of self.output[1,:,:], .., self.output[batch_size, :,:] in it by multiplying with identity
+    diagonals = np.eye(self.output.shape[1]) * np.vsplit(self.output, self.output.shape[0])
+    # for each batch element: diagonal - x_i*x_i^T (d_N x 1 * 1 x d_N = d_N x d_N)
+    # --> (batch-element wise for batch matrix x -> einsum)
     dx_dtildex = diagonals - np.einsum('ij, ik -> ijk', self.output, self.output)
-    # multiply dout batchwise to dx_tildex, which is also batchwise
+    # multiply dout batchwise to dx_tildex, which is also batchwise and omit extra dimensions again by summing
     dx = np.einsum('ij, ijk -> ik', dout, dx_dtildex)
     ########################
     # END OF YOUR CODE    #
@@ -275,8 +292,8 @@ class CrossEntropyModule(object):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    batch_size = x.shape[0]
-    dx = (1/batch_size) * np.divide(-y,x + 1e-6)
+
+    dx = (1/x.shape[0]) * np.divide(-y,x + 1e-6)
     ########################
     # END OF YOUR CODE    #
     #######################
