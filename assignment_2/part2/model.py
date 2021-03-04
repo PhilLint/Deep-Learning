@@ -28,6 +28,22 @@ class TextGenerationModel(nn.Module):
         super(TextGenerationModel, self).__init__()
         # Initialization here...
 
-    def forward(self, x):
+        self.batch_size = batch_size
+        self.seq_length = seq_length
+        self.vocabulary_size = vocabulary_size
+        self.lstm_num_hidden = lstm_num_hidden
+        self.lstm_num_layers = lstm_num_layers
+        self.device = device
+
+        # dimension (vocabulary_size, vocabulary_size) to fit the model input
+        self.char_embedding = nn.Embedding(vocabulary_size, vocabulary_size)
+
+        self.lstm = nn.LSTM(vocabulary_size, lstm_num_hidden, lstm_num_layers, dropout=1 - dropout_keep_prob,
+                            batch_first=True)
+        self.linear = nn.Linear(lstm_num_hidden, vocabulary_size)
+
+    def forward(self, x, hidden=None):
         # Implementation here...
-        pass
+        net_out, hidden = self.lstm(self.char_embedding(x), hidden)
+        # Transpose because the cross entropy loss wants(minibatch, classes, features)
+        return self.linear(net_out).transpose(2, 1), hidden
