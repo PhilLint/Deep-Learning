@@ -2,34 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08dde783-d668-4422-acac-cfe953826bca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assignment_2/part1/plot_experiments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DeepLearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DeepLearning.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/custom_batchnorm.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_1/code/custom_batchnorm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/mlp_numpy.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_1/code/mlp_numpy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/mlp_pytorch.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_1/code/mlp_pytorch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/modules.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_1/code/modules.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/numpy/steps.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/numpy/test accuracies.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/numpy/test losses.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/numpy/train accuracies.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/numpy/train losses.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/train_mlp_numpy.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_1/code/train_mlp_numpy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/train_mlp_pytorch.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_1/code/train_mlp_pytorch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_1/code/unittests.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_1/code/unittests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_2/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_2/assignment_2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_2/part1/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_2/part1/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_2/part1/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_2/part1/lstm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_2/part1/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_2/part1/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_2/part1/vanilla_rnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_2/part1/vanilla_rnn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_2/part2/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_2/part2/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_2/part2/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_2/part2/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_2/part2/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_2/part2/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment_1/code/convnet_pytorch.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_1/code/convnet_pytorch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment_1/code/train_convnet_pytorch.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_1/code/train_convnet_pytorch.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,69 +23,6 @@
     <SUITE FILE_PATH="coverage/Deep_Learning$train.coverage" NAME="train Coverage Results" MODIFIED="1576457423546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assignment_2/part1" />
     <SUITE FILE_PATH="coverage/Deep_Learning$a3_gan_template.coverage" NAME="a3_gan_template Coverage Results" MODIFIED="1576533159523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assignment_3/templates" />
     <SUITE FILE_PATH="coverage/Deep_Learning$train_mlp_numpy.coverage" NAME="train_mlp_numpy Coverage Results" MODIFIED="1573415570340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assignment_1/code" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assignment_3/templates/a3_vae_template.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="9" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment_3/templates/a3_nf_template.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2873">
-              <caret line="179" selection-start-line="179" selection-end-line="179" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment_3/templates/a3_gan_template.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2805">
-              <caret line="173" column="58" selection-start-line="173" selection-start-column="58" selection-end-line="173" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment_3/templates/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4097">
-              <caret line="256" column="10" selection-start-line="256" selection-start-column="10" selection-end-line="256" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment_3/templates/unittests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -141,33 +55,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/assignment_1/code/modules.py" />
-        <option value="$PROJECT_DIR$/assignment_1/code/mlp_numpy.py" />
-        <option value="$PROJECT_DIR$/assignment_1/code/train_mlp_numpy.py" />
-        <option value="$PROJECT_DIR$/assignment_1/code/mlp_pytorch.py" />
-        <option value="$PROJECT_DIR$/assignment_1/code/train_mlp_pytorch.py" />
-        <option value="$PROJECT_DIR$/assignment_1/code/unittests.py" />
-        <option value="$PROJECT_DIR$/assignment_1/code/custom_batchnorm.py" />
-        <option value="$PROJECT_DIR$/assignment_1/code/cleo.py" />
-        <option value="$PROJECT_DIR$/assignment_2/assignment_2/part1/vanilla_rnn.py" />
-        <option value="$PROJECT_DIR$/assignment_2/assignment_2/part1/train.py" />
-        <option value="$PROJECT_DIR$/assignment_2/part1/vanilla_rnn.py" />
-        <option value="$PROJECT_DIR$/assignment_2/part1/plot_experiments.py" />
-        <option value="$PROJECT_DIR$/assignment_2/part1/lstm.py" />
-        <option value="$PROJECT_DIR$/assignment_2/part2/train.py" />
-        <option value="$PROJECT_DIR$/assignment_2/part2/model.py" />
-        <option value="$PROJECT_DIR$/assignment_2/part1/train.py" />
-        <option value="$PROJECT_DIR$/assignment_1/assignment_3/templates/a3_vae_template.py" />
-        <option value="$PROJECT_DIR$/assignment_3/templates/test.py" />
-        <option value="$PROJECT_DIR$/assignment_3/templates/a3_nf_template.py" />
-        <option value="$PROJECT_DIR$/assignment_3/templates/a3_gan_template.py" />
-        <option value="$PROJECT_DIR$/assignment_3/templates/a3_vae_template.py" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
       <list>
@@ -185,53 +72,11 @@
     <option name="width" value="2882" />
     <option name="height" value="2026" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Deep-Learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Deep-Learning" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Deep-Learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Deep-Learning" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment_1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Deep-Learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Deep-Learning" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment_1" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment_3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Deep-Learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Deep-Learning" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment_1" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment_3" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Deep-Learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Deep-Learning" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment_3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Deep-Learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Deep-Learning" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment_3" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectId" id="1pIUQquRdX4S7dD6zXxptb4Zhw6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -253,18 +98,6 @@
       <recent name="C:\Users\lintl\Documents\GitHub\Deep-Learning\assignment_2" />
       <recent name="C:\Users\lintl\Documents\GitHub\Deep-Learning\assignment_2\part1" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.a3_gan_template">
     <configuration name="a3_gan_template" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -421,6 +254,7 @@
       <workItem from="1579123640693" duration="32000" />
       <workItem from="1579262224875" duration="999000" />
       <workItem from="1579268678505" duration="788000" />
+      <workItem from="1614870102621" duration="518000" />
     </task>
     <servers />
   </component>
@@ -456,62 +290,6 @@
       <configuration name="Unittests in unittests.py" configurationId="tests" />
     </history-entry>
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270515000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1441" height="1013" extended-state="6" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.106290676" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.73174256" weight="0.30552545" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49828178" weight="0.398641" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49963847" weight="0.3295583" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.2682574" side_tool="true" weight="0.25254813" />
-      <window_info anchor="bottom" id="Python Console" order="11" sideWeight="0.8804124" weight="0.3204983" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49003437" visible="true" weight="0.36806342" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.19522777" />
-      <window_info anchor="right" id="R Graphics" order="4" />
-      <window_info anchor="right" id="R Packages" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22560975" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.73174256" weight="0.1574179" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49828178" weight="0.398641" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49963847" weight="0.3295583" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.2682574" side_tool="true" weight="0.25254813" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49003437" weight="0.45866364" />
-      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.8804124" visible="true" weight="0.32502595" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.19522777" />
-      <window_info anchor="right" id="R Graphics" order="4" />
-      <window_info anchor="right" id="R Packages" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -519,250 +297,5 @@
     <SUITE FILE_PATH="coverage/DeepLearning$train_mlp_pytorch.coverage" NAME="train_mlp_pytorch Coverage Results" MODIFIED="1555875431297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assignment_1/code" />
     <SUITE FILE_PATH="coverage/DeepLearning$train_mlp_numpy.coverage" NAME="train_mlp_numpy Coverage Results" MODIFIED="1555844378409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assignment_1/code" />
     <SUITE FILE_PATH="coverage/DeepLearning$Unittests_in_unittests_py.coverage" NAME="Unittests in unittests.py Coverage Results" MODIFIED="1555844071329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assignment_1/code" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assignment_1/code/cifar10/get_cifar10.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_1/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="270">
-            <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../miniconda3/envs/DeepLearning/lib/python3.6/unittest/main.py" />
-    <entry file="file://$PROJECT_DIR$/../miniconda3/envs/DeepLearning/lib/python3.6/unittest/loader.py" />
-    <entry file="file://$PROJECT_DIR$/../miniconda3/envs/DeepLearning/lib/python3.6/site-packages/torch/nn/modules/module.py" />
-    <entry file="file://$PROJECT_DIR$/../miniconda3/envs/DeepLearning/lib/python3.6/site-packages/torch/nn/_functions/thnn/auto.py" />
-    <entry file="file://$PROJECT_DIR$/assignment_1/code/cifar10_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3213">
-          <caret line="195" selection-start-line="195" selection-end-line="195" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_import_hook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_1/code/cleo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_1/code/unittests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_2/assignment_2/part1/vanilla_rnn.py" />
-    <entry file="file://$PROJECT_DIR$/assignment_2/assignment_2/part1/train.py" />
-    <entry file="file://$PROJECT_DIR$/assignment_1/code/mlp_numpy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="104" column="40" selection-start-line="104" selection-start-column="40" selection-end-line="104" selection-end-column="40" />
-          <folding>
-            <element signature="e#121#159#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_2/part2/dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_1/code/modules.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3672">
-          <caret line="216" column="7" selection-start-line="216" selection-start-column="7" selection-end-line="216" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_1/code/custom_batchnorm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="94" column="76" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/Lib/site-packages/torch/utils/data/dataloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11951">
-          <caret line="719" column="6" selection-start-line="719" selection-start-column="6" selection-end-line="719" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_2/part1/dataset.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/distutils/dist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16354">
-          <caret line="965" selection-start-line="965" selection-end-line="965" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_2/part2/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_2/part1/vanilla_rnn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="48" column="63" selection-start-line="48" selection-start-column="63" selection-end-line="48" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_1/code/train_mlp_numpy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_1/code/mlp_pytorch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="e#123#161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_1/code/train_mlp_pytorch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-          <folding>
-            <element signature="e#144#182#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DL.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-587" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_2/part2/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_2/part1/lstm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="78" column="66" selection-start-line="78" selection-start-column="66" selection-end-line="78" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_2/part1/plot_experiments.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_2/assignment_3/templates/a3_vae_template.py" />
-    <entry file="file://$PROJECT_DIR$/assignment_1/assignment_3/templates/a3_vae_template.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-584">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_2/part1/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3740">
-          <caret line="220" column="42" selection-start-line="220" selection-end-line="221" />
-          <folding>
-            <element signature="e#707#745#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_3/templates/a3_vae_template.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="9" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_3/templates/a3_nf_template.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2873">
-          <caret line="179" selection-start-line="179" selection-end-line="179" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_3/templates/a3_gan_template.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2805">
-          <caret line="173" column="58" selection-start-line="173" selection-start-column="58" selection-end-line="173" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_3/templates/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4097">
-          <caret line="256" column="10" selection-start-line="256" selection-start-column="10" selection-end-line="256" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment_3/templates/unittests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
