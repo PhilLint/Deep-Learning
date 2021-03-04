@@ -10,7 +10,7 @@ import math
 import os
 from torchvision.utils import make_grid
 
-
+from torchvision.utils import save_image
 def log_prior(x):
     """
     Compute the elementwise log probability of a standard Gaussian, i.e.
@@ -80,10 +80,15 @@ class Coupling(torch.nn.Module):
         # log_scale = tanh(h), where h is the scale-output
         # from the NN.
 
+        log_scale = torch.tanh(h)
+
         if not reverse:
-            raise NotImplementedError
+            # According eq. 9 in the RealNVP paper
+            z = self.mask * z + (1 - self.mask) * (z * torch.exp(log_scale) + t)
+            ldj += torch.sum((1 - self.mask) * log_scale, dim=1)
         else:
-            raise NotImplementedError
+            # According eq. 8 in the RealNVP paper
+            z = self.mask * z + (1 - self.mask) * (z - t) * torch.exp(-log_scale)
 
         return z, ldj
 
@@ -173,15 +178,19 @@ class Model(nn.Module):
         Sample n_samples from the model. Sample from prior and create ldj.
         Then invert the flow and invert the logit_normalize.
         """
+
         z = sample_prior((n_samples,) + self.flow.z_shape)
         ldj = torch.zeros(z.size(0), device=z.device)
 
+        # Invert the flow and invert the logit_normalize.
+        x_hat, ldj = self.flow(z, ldj, reverse=True)
+        x_hat, ldj = self.logit_normalize(x_hat, ldj, reverse=True)
+
+        return x_hat
 
 
-        return z
 
-
-def epoch_iter(model, data, optimizer):
+def epoch_iter(model, data, optimizer, device):
     """
     Perform a single epoch for either the training or validation.
     use model.training to determine if in 'training mode' or not.
@@ -190,7 +199,21 @@ def epoch_iter(model, data, optimizer):
     log_2 likelihood per dimension) averaged over the complete epoch.
     """
 
-    avg_bpd = None
+    nlls = []
+    for step, (batch_inputs, _) in enumerate(data):
+        log_px = model(batch_inputs.view(-1, model.shape[0]).to(device))
+        nll = -torch.mean(log_px)  # negative log-likelihood
+        nlls.append(nll.item())
+
+        if model.training:
+            optimizer.zero_grad()
+            nll.backward()
+            # Use gradient clipping as discussed on piazza
+            torch.nn.utils.clip_grad_norm(model.parameters(), max_norm=ARGS.max_norm)
+            optimizer.step()
+
+    # Change of base from log_e to log_2
+    avg_bpd = np.mean(np.asarray(nlls) / model.shape[0] / np.log(2))
 
     return avg_bpd
 
@@ -220,6 +243,11 @@ def save_bpd_plot(train_curve, val_curve, filename):
     plt.tight_layout()
     plt.savefig(filename)
 
+def plot_grid(model, n_samples, epoch):
+    x_hats = model.sample(n_samples)
+    save_image(x_hats.view(n_samples, 1, 28, 28), 'images_nfs/norm_flow_sample_{}.png'.format(epoch),
+               nrow=int(np.sqrt(n_samples)), normalize=True)
+
 
 def main():
     data = mnist()[:2]  # ignore test split
@@ -247,8 +275,13 @@ def main():
         #  You can use the make_grid functionality that is already imported.
         #  Save grid to images_nfs/
         # --------------------------------------------------------------------
+        # Same procedure I already implemented in the VAE file
+        if epoch % 5 == 0 or epoch == ARGS.epochs - 1:
+            plot_grid(model, n_samples, epoch + 1)
 
-    save_bpd_plot(train_curve, val_curve, 'nfs_bpd.pdf')
+
+    save_bpd_plot(train_curve, val_curve, 'nfs_bpd.png')
+    torch.save(model, "trained_norm_flow.pth")
 
 
 if __name__ == "__main__":
