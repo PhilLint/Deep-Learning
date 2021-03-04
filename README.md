@@ -17,5 +17,7 @@ Three Generative approaches, VAE, GANs and Normalizing Flows were discussed, imp
 First the Variational Autoencoder was thoroughly theoretically discussed and [implemented](https://github.com/PhilLint/Deep-Learning/blob/master/assignment_3/templates/a3_vae_template.py). Next Generative Adversarial Networks were [implemented](https://github.com/PhilLint/Deep-Learning/blob/master/assignment_3/templates/a3_gan_template.py). Not subject to the original project I reimplemented the Normalizing Flow part [here](https://github.com/PhilLint/Deep-Learning/blob/master/assignment_3/templates/a3_nf_template.py). The [Report](https://github.com/PhilLint/Deep-Learning/blob/master/assignment_3/Deep_Learning_Assignment_3_Lintl.pdf)
 
 ## 2021
-# TBD
+Unfortunately I was not able to submit results to my personal standards due to several private issues at the time. Having graduated, it is a personal goal to reimplement some of the touched methods as well as new ideas in separate repositories.
+
+#### TBD
 Rerun experiments that were reimplemented and add in separate short notes. 
